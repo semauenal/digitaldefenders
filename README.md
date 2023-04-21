@@ -1,2 +1,0 @@
-# digitaldefenders
-exitgame
