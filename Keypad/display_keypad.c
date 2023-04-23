@@ -1,11 +1,3 @@
-/*
- * Created by ArduinoGetStarted.com
- *
- * This example code is in the public domain
- *
- * Tutorial page: https://arduinogetstarted.com/tutorials/arduino-keypad-lcd
- */
-
 #include <Keypad.h>
 #include <LiquidCrystal_I2C.h>
 
