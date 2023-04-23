@@ -1,4 +1,5 @@
 #include <Keypad.h>
+#include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
 const int ROW_NUM    = 4; // four rows
@@ -22,6 +23,7 @@ char password[5] = {'1', '2', '3', '4', '\0'}; // Set your password here
 char inputPassword[5] = {'\0'}; // Initialize input password
 
 void setup(){
+  Wire.begin();
   lcd.init(); // initialize the lcd
   lcd.backlight();
   lcd.print("Enter your password:");
@@ -37,18 +39,3 @@ void loop(){
 
     cursorColumn++; // move cursor to next position
     if(cursorColumn == 4) { // if reaching limit, check the password
-      if(strcmp(inputPassword, password) == 0) { // check if input password matches with the password
-        lcd.clear();
-        lcd.print("Door opens");
-      } else {
-        lcd.clear();
-        lcd.print("Wrong password");
-        delay(1000);
-        lcd.clear();
-        lcd.print("Enter your password:");
-      }
-      memset(inputPassword, '\0', 5); // clear the inputPassword array
-      cursorColumn = 0;
-    }
-  }
-}
