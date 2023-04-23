@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Digital Defenders</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+	<header>
+		<h1>Digital Defenders</h1>
+	</header>
+	<main>
+		<div class="container">
+			<h2>Bitte authentifiziert euch</h2>
+			<p>Wir müssen sicher gehen, dass wir euch vertrauen können - findet heraus was eure Nutzereingaben sind.</p>
+			<form onsubmit="authenticate(); return false;">
+				<label for="username">Benutzername:</label>
+				<input type="text" id="username" name="username">
+				<label for="password">Passwort:</label>
+				<input type="password" id="password" name="password">
+				<button type="submit">Anmelden</button>
+			</form>
+      <div id="errorMessage"></div>
+		</div>
+	</main>
+</body>
+</html>
