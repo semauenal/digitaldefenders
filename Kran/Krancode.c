@@ -34,7 +34,7 @@ void loop(){
 achse1++; 
     servo1.write(achse1); 
   } 
-  if (analogRead(0)>700 && eje1>0){ 
+  if (analogRead(0)>700 && achse1>0){ 
 achse1--; 
     servo1.write(achse1); 
   } 
