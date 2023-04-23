@@ -39,3 +39,18 @@ void loop(){
 
     cursorColumn++; // move cursor to next position
     if(cursorColumn == 4) { // if reaching limit, check the password
+      if(strcmp(inputPassword, password) == 0) { // check if input password matches with the password
+        lcd.clear();
+        lcd.print("Door opens");
+      } else {
+        lcd.clear();
+        lcd.print("Wrong password");
+        delay(1000);
+        lcd.clear();
+        lcd.print("Enter your password:");
+      }
+      memset(inputPassword, '\0', 5); // clear the inputPassword array
+      cursorColumn = 0;
+    }
+  }
+}
