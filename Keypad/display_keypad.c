@@ -1,82 +1,62 @@
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
+/*
+ * Created by ArduinoGetStarted.com
+ *
+ * This example code is in the public domain
+ *
+ * Tutorial page: https://arduinogetstarted.com/tutorials/arduino-keypad-lcd
+ */
+
 #include <Keypad.h>
-#include <Servo.h>
+#include <LiquidCrystal_I2C.h>
 
-// Pin Definitions
-#define GREEN_LED_PIN 12
-#define RED_LED_PIN 13
-#define SERVO_PIN 11
+const int ROW_NUM    = 4; // four rows
+const int COLUMN_NUM = 4; // four columns
 
-// Set up servo object
-Servo doorServo;
-
-// Initialize keypad
-const byte ROWS = 4;
-const byte COLS = 4;
-char keys[ROWS][COLS] = {
-  {'1', '2', '3', 'A'},
-  {'4', '5', '6', 'B'},
-  {'7', '8', '9', 'C'},
-  {'*', '0', '#', 'D'}
+char keys[ROW_NUM][COLUMN_NUM] = {
+  {'1','2','3', 'A'},
+  {'4','5','6', 'B'},
+  {'7','8','9', 'C'},
+  {'*','0','#', 'D'}
 };
-byte rowPins[ROWS] = {2, 3, 4, 5};
-byte colPins[COLS] = {6, 7, 8, 9};
-Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
-// Initialize LCD
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+byte pin_rows[ROW_NUM] = {9, 8, 7, 6};      // connect to the row pinouts of the keypad
+byte pin_column[COLUMN_NUM] = {5, 4, 3, 2}; // connect to the column pinouts of the keypad
 
-// Set password
-const char password[] = "1234";
+Keypad keypad = Keypad(makeKeymap(keys), pin_rows, pin_column, ROW_NUM, COLUMN_NUM );
+LiquidCrystal_I2C lcd(0x27, 16, 2); // I2C address 0x27, 16 column and 2 rows
 
-void setup() {
-  // Initialize pins
-  pinMode(GREEN_LED_PIN, OUTPUT);
-  pinMode(RED_LED_PIN, OUTPUT);
-  doorServo.attach(SERVO_PIN);
+int cursorColumn = 0;
+char password[5] = {'1', '2', '3', '4', '\0'}; // Set your password here
+char inputPassword[5] = {'\0'}; // Initialize input password
 
-  // Initialize LCD
-  lcd.init();
+void setup(){
+  lcd.init(); // initialize the lcd
   lcd.backlight();
-  lcd.setCursor(0, 0);
-  lcd.print("Please enter");
-  lcd.setCursor(0, 1);
-  lcd.print("your password");
+  lcd.print("Enter your password:");
 }
 
-void loop() {
+void loop(){
   char key = keypad.getKey();
 
   if (key) {
-    static int index = 0;
-    static char input[5];
+    lcd.setCursor(cursorColumn, 1); // move cursor to   (cursorColumn, 1)
+    lcd.print("*"); // print * instead of actual key
+    inputPassword[cursorColumn] = key; // store key in inputPassword array
 
-    if (key == '#') {
-      input[index] = '\0';
-      index = 0;
-
-      if (strcmp(input, password) == 0) {
+    cursorColumn++; // move cursor to next position
+    if(cursorColumn == 4) { // if reaching limit, check the password
+      if(strcmp(inputPassword, password) == 0) { // check if input password matches with the password
         lcd.clear();
         lcd.print("Door opens");
-        digitalWrite(GREEN_LED_PIN, HIGH);
-        doorServo.write(90);
       } else {
         lcd.clear();
-        lcd.print("Incorrect");
-        digitalWrite(RED_LED_PIN, HIGH);
+        lcd.print("Wrong password");
         delay(1000);
-        digitalWrite(RED_LED_PIN, LOW);
         lcd.clear();
-        lcd.print("Please enter");
-        lcd.setCursor(0, 1);
-        lcd.print("your password");
+        lcd.print("Enter your password:");
       }
-    } else if (index < 4) {
-      input[index] = key;
-      index++;
-      lcd.setCursor(index - 1, 1);
-      lcd.print(key);
+      memset(inputPassword, '\0', 5); // clear the inputPassword array
+      cursorColumn = 0;
     }
   }
 }
