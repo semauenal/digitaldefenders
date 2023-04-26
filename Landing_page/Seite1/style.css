@@ -30,8 +30,38 @@ h1 {
 	margin-bottom: 20px;
 	
 }
+  
+  .forgot-password-hoverbox {
+	position: absolute;
+	z-index: 1;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+	display: none;
+	width: 250px; /* Ändere die Breite auf 200px */
+    height: 150px; /* Ändere die Höhe auf 150px */
+  }
+  
+  .forgot-password-link:hover + .forgot-password-hoverbox {
+	display: block;
+	margin-top: 15px; /* Erhöhe den Abstand nach oben um 10px */
+  }
+  
+  .forgot-password-hoverbox img {
+	max-width: 50%;
+  }
 
+  .forgot-password-hoverbox p {
+	color: #151515;
+	font-size: 12px;
+  }
 
+  .forgot-password-link {
+	color: rgb(247, 110, 110);
+	font-size: 12px;
+  }
+  
+  
 
 h2 {
 	text-align: center;
@@ -80,3 +110,5 @@ button[type="submit"] {
 button[type="submit"]:hover {
 	background-color: #7f0e08;
 }
+
+
