@@ -1,0 +1,66 @@
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include <Keypad.h>
+
+// I2C address of the LCD display
+#define LCD_ADDR 0x3F
+
+// Keypad matrix and pins
+const byte ROWS = 4;
+const byte COLS = 4;
+char keys[ROWS][COLS] = {
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},
+  {'*','0','#','D'}
+};
+byte rowPins[ROWS] = {2,3,4,5};
+byte colPins[COLS] = {6,7,8,9};
+
+// Initialize the LCD display
+LiquidCrystal_I2C lcd(LCD_ADDR, 16, 2);
+
+// Initialize the Keypad
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+
+// Password to be entered by the user
+char password[] = "DDDD";
+
+void setup() {
+  // Initialize the LCD display
+  lcd.init();
+  lcd.backlight();
+
+  // Print the welcome message
+  lcd.setCursor(0, 0);
+  lcd.print("Enter Password:");
+}
+
+void loop() {
+  // Read the keypad input
+  char key = keypad.getKey();
+  
+  // If a key is pressed, add it to the password
+  if (key != NO_KEY) {
+    static int passwordIndex = 0;
+    lcd.setCursor(passwordIndex, 1);
+    lcd.print(key);
+    password[passwordIndex] = key;
+    passwordIndex++;
+    
+    // If the password is complete, check it
+    if (passwordIndex == sizeof(password) - 1) {
+      passwordIndex = 0;
+      lcd.clear();
+      if (strcmp(password, "DDDD") == 0) {
+        lcd.print("Password OK");
+      } else {
+        lcd.print("Wrong Password");
+      }
+      delay(1000);
+      lcd.clear();
+      lcd.setCursor(0, 0);
+      lcd.print("Enter Password:");
+    }
+  }
+}
