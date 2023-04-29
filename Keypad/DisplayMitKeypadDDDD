@@ -36,6 +36,24 @@ void setup() {
   lcd.print("Enter Password:");
 }
 
+void checkPassword() {
+  delay(500);
+  lcd.clear();
+  if (strcmp(password, "1234") == 0) {
+    lcd.print("Door opens!");
+    delay(1000);
+    while(keypad.getKey() != '#') { // wait for '#' key to be pressed
+      delay(10);
+    }
+  } else {
+    lcd.print("Wrong Password!");
+    delay(1500);
+  }
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Enter Password:");
+}
+
 void loop() {
   // Read the keypad input
   char key = keypad.getKey();
@@ -51,22 +69,7 @@ void loop() {
     // If the password is complete, check it
     if (passwordIndex == sizeof(password) - 1) {
       passwordIndex = 0;
-      lcd.clear();
-      if (strcmp(password, "1234") == 0) {
-        lcd.print("Door opens!");
-        while(key != '#') { // wait for '#' key to be pressed
-          key = keypad.getKey();
-        }
-        lcd.clear();
-        lcd.setCursor(0, 0);
-        lcd.print("Enter Password:");
-      } else {
-        lcd.print("Wrong Password!");
-        delay(1500);
-        lcd.clear();
-        lcd.setCursor(0, 0);
-        lcd.print("Enter Password:");
-      }
+      checkPassword();
     }
   }
 }
