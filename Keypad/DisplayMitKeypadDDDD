@@ -14,8 +14,8 @@ char keys[ROWS][COLS] = {
   {'7','8','9','C'},
   {'*','0','#','D'}
 };
-byte rowPins[ROWS] = {2,3,4,5};
-byte colPins[COLS] = {6,7,8,9};
+byte rowPins[ROWS] = {9,8,7,6};
+byte colPins[COLS] = {5,4,3,2};
 
 // Initialize the LCD display
 LiquidCrystal_I2C lcd(LCD_ADDR, 16, 2);
@@ -24,7 +24,7 @@ LiquidCrystal_I2C lcd(LCD_ADDR, 16, 2);
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 // Password to be entered by the user
-char password[] = "DDDD";
+char password[] = "1234";
 
 void setup() {
   // Initialize the LCD display
@@ -52,15 +52,21 @@ void loop() {
     if (passwordIndex == sizeof(password) - 1) {
       passwordIndex = 0;
       lcd.clear();
-      if (strcmp(password, "DDDD") == 0) {
-        lcd.print("Password OK");
+      if (strcmp(password, "1234") == 0) {
+        lcd.print("Door opens!");
+        while(key != '#') { // wait for '#' key to be pressed
+          key = keypad.getKey();
+        }
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("Enter Password:");
       } else {
-        lcd.print("Wrong Password");
+        lcd.print("Wrong Password!");
+        delay(1500);
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("Enter Password:");
       }
-      delay(1000);
-      lcd.clear();
-      lcd.setCursor(0, 0);
-      lcd.print("Enter Password:");
     }
   }
 }
