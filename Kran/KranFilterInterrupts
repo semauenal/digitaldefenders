@@ -1,0 +1,97 @@
+#include <Servo.h>
+
+// Definieren der Servo-Objekte
+Servo servo1;
+Servo servo2;
+
+// Definieren der Minimal- und Maximalwinkel für die Servomotoren
+const int MIN_ANGLE = 0;
+const int MAX_ANGLE = 180;
+
+// Definieren der minimalen und maximalen Analogeingangspegel
+const int MIN_JOYSTICK = 0;
+const int MAX_JOYSTICK = 1023;
+
+// Definieren der Wiederholrate des Servoupdates in Millisekunden
+const int SERVO_UPDATE_RATE = 10;
+
+// Definieren der Filterkonstanten
+const float FILTER_ALPHA = 0.2;
+const float FILTER_BETA = 0.8;
+
+// Definieren der Interruptvariablen
+volatile int joystick1Value = 0;
+volatile int joystick2Value = 0;
+volatile boolean joystick1Flag = false;
+volatile boolean joystick2Flag = false;
+
+// Definieren der Servogeschwindigkeitsvariablen
+const int SERVO_SPEED = 5;
+int currentServo1Angle = 90;
+int currentServo2Angle = 90;
+
+// Interrupt-Funktion für Joystick 1
+void joystick1Interrupt() {
+  joystick1Value = analogRead(0);
+  joystick1Flag = true;
+}
+
+// Interrupt-Funktion für Joystick 2
+void joystick2Interrupt() {
+  joystick2Value = analogRead(1);
+  joystick2Flag = true;
+}
+
+void setup() {
+  // Anschließen der Servomotoren an die Pins 6 und 7
+  servo1.attach(7);
+  servo2.attach(6);
+
+  // Setzen der Startpositionen der Servomotoren auf 90 Grad
+  servo1.write(90);
+  servo2.write(90);
+
+  // Konfigurieren der Interrupts
+  attachInterrupt(digitalPinToInterrupt(0), joystick1Interrupt, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(1), joystick2Interrupt, CHANGE);
+}
+
+void loop() {
+  // Wenn der Joystick 1 bewegt wurde
+  if (joystick1Flag) {
+    // Filtern des Joystick-Signals
+    int filteredJoystick1 = FILTER_ALPHA * joystick1Value + FILTER_BETA * filteredJoystick1;
+    // Umwandeln des Analogeingangspegels in Servowinkelwert
+    int servo1Angle = map(filteredJoystick1, MIN_JOYSTICK, MAX_JOYSTICK, MIN_ANGLE, MAX_ANGLE);
+    // Anpassen der Servogeschwindigkeit
+    if (servo1Angle > currentServo1Angle) {
+      currentServo1Angle += SERVO_SPEED;
+      currentServo1Angle = min(currentServo1Angle, servo1Angle);
+    } else if (servo1Angle < currentServo1Angle) {
+      currentServo1Angle -= SERVO_SPEED;
+      currentServo1Angle = max(currentServo1Angle, servo1Angle);
+    }
+    // Aktualisieren des Servomotors
+    servo1.write(currentServo1Angle);
+    // Zurücksetzen des Flags
+    joystick1Flag = false;
+  }
+
+ // Wenn der Joystick 2 bewegt wurde
+if (joystick2Flag) {
+  // Filtern des Joystick-Signals
+  int filteredJoystick2 = FILTER_ALPHA * joystick2Value + FILTER_BETA * filteredJoystick2;
+  // Umwandeln des gefilterten Analogeingangspegels in Servowinkelwerte
+  int servo2Angle = map(filteredJoystick2, MIN_JOYSTICK, MAX_JOYSTICK, MIN_ANGLE, MAX_ANGLE);
+  // Berechnen der Änderung des Servowinkels
+  int servo2Delta = servo2Angle - servo2CurrentAngle;
+  // Begrenzen der Änderung des Servowinkels
+  servo2Delta = constrain(servo2Delta, -SERVO_MAX_STEP, SERVO_MAX_STEP);
+  // Aktualisieren des aktuellen Servowinkels
+  servo2CurrentAngle += servo2Delta;
+  // Aktualisieren des Servos
+  servo2.write(servo2CurrentAngle);
+  // Setzen der Joystick-Flag zurück
+  joystick2Flag = false;
+}
+}
