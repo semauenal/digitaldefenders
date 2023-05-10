@@ -25,7 +25,7 @@ LiquidCrystal_I2C lcd(LCD_ADDR, 16, 2);
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
 // Passwort, das vom Benutzer eingegeben werden soll
-char password[] = "1234";
+char password[] = "7936";
 
 // Initialisiere den Servomotor
 Servo myservo;
@@ -50,7 +50,7 @@ void setup() {
 void checkPassword() {
   delay(500);
   lcd.clear();
-  if (strcmp(password, "1234") == 0) {
+  if (strcmp(password, "7936") == 0) {
     lcd.print("Door opens!");
     delay(1000);
     myservo.write(openAngle); // Servo um den Öffnungswinkel drehen
