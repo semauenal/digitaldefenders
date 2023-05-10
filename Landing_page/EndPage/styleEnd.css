@@ -1,17 +1,20 @@
+/* Setze den Font und Hintergrund des Body-Elements */
 body {
 	font-family: 'Open Sans', sans-serif;
 	background-color: #393838;
 	color: #b4b1b1;
 	text-align: center;
-  }
-  
-  img {
+}
+
+/* Setze die Größe und den Schatten für das img-Element */
+img {
 	width: 50%;
 	height: auto;
 	box-shadow: 3px 3px 5px rgba(255, 255, 255, 0.5);
-  }
-  
-  .container {
+}
+
+/* Setze das Styling für den Container */
+.container {
 	background-color: #151515;
 	border: none;
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
@@ -19,46 +22,50 @@ body {
 	margin: 20px auto;
 	max-width: 500px;
 	color: #fff;
-  }
-  
-  header {
+}
+
+/* Setze die Ausrichtung und den Abstand für den Header */
+header {
 	text-align: center;
 	margin-top: 50px;
-  }
-  
-  h1 {
+}
+
+/* Setze die Schriftart und Farbe für den H1-Titel */
+h1 {
 	font-size: 30px;
 	font-weight: 700;
 	margin-bottom: 20px;
 	color: #bf0e08;
-	
-  }
-  
-  h4 {
+}
+
+/* Setze die Schriftart und Größe für den H4-Untertitel */
+h4 {
 	font-size: 25px;
 	font-weight: 400;
 	margin-bottom: 10px;
-	
-	
-  }
-  
-  .footer {
+}
+
+/* Setze die Ausrichtung und den Abstand für den Footer */
+.footer {
 	text-align: center;
 	margin-top: 50px;
-  }
-  
-  p {
+}
+
+/* Setze die Schriftart und Größe für den Text im Container */
+p {
 	font-size: 14px;
 	font-weight: 300;
 	margin-bottom: 10px;
-  }
-  
-  label {
+}
+
+/* Setze die Schriftfarbe und Größe für das Label */
+label {
 	color:#e82d2d;
 	font-size: 20px;
-  }
+}
 
-  input {
+/* Setze das Styling für das Input-Element */
+input {
 	padding: 10px;
 	margin: 10px 0px;
 	border-radius: 5px;
@@ -67,16 +74,12 @@ body {
 	background-color: #333;
 	color: #fff;
 	outline: none;
-  }
+}
 
-  .map-container iframe {
-    border: 0;
-    width: 400px;
-    height: 400px;
-  }
-
-
-  
-  
-
+/* Setze die Größe und den Rahmen für die Map-Container-Iframe */
+.map-container iframe {
+	border: 0;
+	width: 400px;
+	height: 400px;
+}
 
