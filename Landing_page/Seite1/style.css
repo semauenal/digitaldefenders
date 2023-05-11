@@ -71,9 +71,7 @@ h1 {
 	position: static;
 	display: block;
 	margin-top: 10px; /* Fügt einen oberen Abstand hinzu, um den Link und die Hover-Box voneinander zu trennen */
-}
-
-  
+}  
   
 
 /* Stil für Überschrift */
@@ -113,13 +111,15 @@ input {
 /* Stil für den Senden-Button des Formulars */
 button[type="submit"] {
 	padding: 10px; /* Abstand des Senden-Buttons zum Inhalt auf 10px setzen */
-	margin-top: 20px; /* Oberen Abstand des Senden-Buttons auf 20px setzen */
+	margin-top: 10px; /* Oberen Abstand des Senden-Buttons auf 20px setzen */
+	margin-bottom: 10px;
 	background-color: #bf0e08; /* Hintergrundfarbe des Senden-Buttons auf Dunkelrot setzen */
 	color: #fff; /* Schriftfarbe auf Weiß setzen */
 	border: none; /* Kein Rahmen um den Senden-Button */
 	border-radius: 5px; /* Runde Ecken des Senden-Buttons auf 5px */
 	cursor: pointer; /* Ändert den Cursor beim Überfahren des Buttons in eine Hand */
 	box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3); /* Einen leichten Schatten um den Senden-Button erstellen */
+	font-size: 15px;
 }
 
 /* Stil für den Senden-Button des Formulars, wenn er angehoben wird */
