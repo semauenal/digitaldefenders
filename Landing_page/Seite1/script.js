@@ -9,7 +9,7 @@ function authenticate() {
 	// Wenn der eingegebene Benutzername "test" und das eingegebene Passwort "1234" ist
 	if (username === "test" && password === "1234") {
 	  // Leite den Benutzer auf die EndPage weiter
-	  window.location.href = "http://127.0.0.1:3000/EndPage/indexEnd.html";
+	  window.location.href = "http://127.0.0.1:3000/HomePage/indexHome.html";
 	} else {
 	  // Andernfalls zeige eine Fehlermeldung an
 	  errorMessage.innerHTML =

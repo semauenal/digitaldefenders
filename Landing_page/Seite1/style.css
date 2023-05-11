@@ -36,38 +36,43 @@ h1 {
 /* Der folgende Abschnitt definiert den Stil für den Abschnitt, der bei Bedarf eine versteckte Box mit zusätzlichen Informationen anzeigt, wenn der Benutzer mit dem Mauszeiger über den "forgot password" Link fährt. */
 .forgot-password-hoverbox {
 	position: absolute;
+	top: 20px;
+	left: 0;
 	z-index: 1;
 	background-color: #fff;
 	border: 1px solid #ccc;
 	padding: 10px;
 	display: none;
-	width: 250px; /* Ändere die Breite auf 200px */
-    height: 150px; /* Ändere die Höhe auf 150px */
+	width: 200px;
+	height: 150px;
 }
 
 /* Der folgende Abschnitt definiert den Stil für den "forgot password" Link und legt die Farbe auf ein helles Rot fest und die Schriftgröße auf 12px. */
 .forgot-password-link {
 	color: rgb(247, 110, 110);
 	font-size: 12px;
+	
 }
 
 /* Der folgende Abschnitt definiert den Stil für das Bild in der versteckten Box. Die maximale Breite beträgt 50%. */
 .forgot-password-hoverbox img {
 	max-width: 50%;
+	
 }
 
 /* Der folgende Abschnitt definiert den Stil für den Text in der versteckten Box. Die Schriftfarbe ist #151515 und die Schriftgröße beträgt 12px. */
 .forgot-password-hoverbox p {
 	color: #151515;
 	font-size: 12px;
+	display: block;
 }
 
-/* Der folgende Abschnitt definiert den Stil für den Link "forgot password" und legt die Farbe auf ein helles Rot fest und die Schriftgröße auf 12px. */
-.forgot-password-link {
+.forgot-password-link:hover + .forgot-password-hoverbox {
+	position: static;
+	display: block;
+	margin-top: 10px; /* Fügt einen oberen Abstand hinzu, um den Link und die Hover-Box voneinander zu trennen */
+}
 
-	color: rgb(247, 110, 110);
-	font-size: 12px;
-  }
   
   
 
@@ -119,7 +124,5 @@ button[type="submit"] {
 
 /* Stil für den Senden-Button des Formulars, wenn er angehoben wird */
 button[type="submit"]:hover {
-	background-color: #7f0e08; /* Hintergrundfarbe des Senden-Buttons auf Dunkelrot ändern, wenn er angehoben wird */
+	background-color: #7f0e08; /* Hintergrundfarbe des Senden-Buttons auf Dunkelrot ändern, wenn er angehoben wird */
 }
-
-
