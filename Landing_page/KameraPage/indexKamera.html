@@ -14,7 +14,7 @@
 	<script src="scriptKamera.js"></script>
 </head>
 <body>
-	<!-- Container für den Chat -->
+	<!-- Container für den Chat - class genauer erklärt in Startseite (Seite1)-->
 	<div class="chat-container">
 		<!-- Chat-Header mit Überschrift -->
 		<div class="chat-header">
@@ -23,7 +23,7 @@
 		<!-- Chat-Box für die Nachrichten -->
 		<div class="chat-box">
 			<!-- Chat-Nachrichten -->
-			<div class="chat-message">
+			<div class="chat-message"> <!-- Da jede Message ja in einer eigenen 'Bubble' steht immer neue class-Anweisung-->
 				<p>Hi Russel, alles klar?</p>
 			</div>
 			<div class="chat-message">
@@ -40,7 +40,7 @@
 			<div class="hover-container">
 				<!-- Text, der angezeigt wird, wenn man mit der Maus über das Bild geht -->
 				<h5>Russel ist gerade aktiv</h5>
-				<!-- Beispielbild -->
+				<!-- Einbindung eines I's als Bild, worüber User hovern muss, um Text angezeigt zu bekommen -->
 				<img src="information.jpg" alt="example image">
 				<!-- Hover-Box mit Text -->
 				<div class="hover-box">
@@ -50,58 +50,12 @@
       
 			<!-- Eingabefeld für die MAC-Adresse und Button zum Freischalten -->
 			<div class="chat-input">
-				<input type="text" placeholder="Gib die MAC Adresse ein..." onpaste="pasteFromClipboard(event)">
-				<button onclick="freischaltungKamera()">Freischaltung Kamera</button>
+				<input type="text" placeholder="Gib die MAC Adresse ein..." onpaste="pasteFromClipboard(event)"> <!-- Paceholder: Text der im Hintergrund angezeigt wird-->
+				<button onclick="freischaltungKamera()">Freischaltung Kamera</button> <!-- Aufruf der Funktion aus JavaSkript für den Netzwerkfehler bei richtiger Eingabe der MAC-Adresse-->
 			</div>
+
 		</div>
 	</div>
-
-<script>
-  function freischaltungKamera() {
-    // Eingabefeld für die MAC-Adresse
-      var input = document.querySelector('input[type="text"]');
-      // Eingegebene MAC-Adresse wird in Großbuchstaben umgewandelt und Leerzeichen am Anfang und Ende entfernt
-      var macAdresse = input.value.trim().toUpperCase();
-
-      // Entfernen vorhandener Meldungen
-			// Fehlermeldung entfernen, falls vorhanden
-      var errorBox = document.querySelector(".error-box");
-      if (errorBox !== null) {
-        errorBox.remove();
-      }
-      // Erfolgsmeldung entfernen, falls vorhanden
-      var successBox = document.querySelector(".success-box");
-      if (successBox !== null) {
-        successBox.remove();
-      }
-
-      // Überprüfung, ob die eingegebene MAC-Adresse korrekt ist
-      if (macAdresse === "400") {
-        // Code, um die Kamera freizuschalten oder eine Aktion auszuführen
-        alert("Kamera wurde freigeschaltet!");
-
-    // Anzeigen der Erfolgsmeldung
-	  successBox = document.createElement("div");
-    successBox.classList.add("success-box");
-    var successHeader = document.createElement("h2");
-    successHeader.textContent = "Netzwerkfehler";
-    successBox.appendChild(successHeader);
-    var successText = document.createElement("p");
-    successText.textContent = "Ihre Eingabe war richtig. Leider liegt ein Problem bei der Verbindung vor. Bitte beheben Sie dieses, damit Sie Zugriff auf die Kamera haben.";
-    successBox.appendChild(successText);
-    input.parentElement.appendChild(successBox);
-  } else {
-    // Anzeigen der Fehlermeldung
-    errorBox = document.createElement("div");
-    errorBox.classList.add("error-box");
-    errorBox.textContent = "Die eingegebene MAC-Adresse ist falsch.";
-    input.parentElement.appendChild(errorBox);
-  }
-}
-  </script>
-
-  
-  
 </body>
 </html>
 

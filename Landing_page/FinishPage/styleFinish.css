@@ -1,0 +1,56 @@
+/* Setze den Font und Hintergrund des Body-Elements */
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #393838;
+	color: #b4b1b1;
+	text-align: center;
+  }
+  
+  /* Setze das Styling für den Container */
+  .container {
+	background-color: #151515;
+	border: none;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+	padding: 20px;
+	margin: 20px auto;
+	max-width: 500px;
+	color: #fff;
+  }
+  
+  /* Setze die Ausrichtung und den Abstand für den Header */
+  header {
+	text-align: center;
+	margin-top: 50px;
+  }
+  
+  /* Setze die Schriftart und Farbe für den H1-Titel */
+  h1 {
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 20px;
+	color: #bf0e08;
+  }
+  
+  /* Setze die Ausrichtung und den Abstand für den Footer */
+  .footer {
+	text-align: center;
+	margin-top: 50px;
+  }
+  
+  /* Setze die Schriftart und Größe für den Text im Container */
+  p {
+	font-size: 14px;
+	font-weight: 300;
+	margin-bottom: 10px;
+  }
+  
+  /* Setze das Styling für den grünen Balken mit Zieltext */
+ /* Setze das Styling für den grünen Balken mit Zieltext */
+.goal-container {
+	background-color: #8e2424;
+	padding: 20px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	box-shadow: 0px 2px 6px rgba(155, 152, 152, 0.5);
+  }
+  
