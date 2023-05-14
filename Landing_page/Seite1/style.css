@@ -1,7 +1,7 @@
 /* Der folgende Abschnitt definiert den globalen Body-Style und legt den Hintergrund auf #262626 fest und die Textfarbe auf #b4b1b1. */
 body {
 	font-family: 'Open Sans', sans-serif;
-	background-color: #262626;
+	background-color: #262626;;
 	color: #b4b1b1;
 	text-align: center;
 }

@@ -1,7 +1,7 @@
 /* CSS für den gesamten Body */
 body {
 	font-family: 'Open Sans', sans-serif;
-	background-color: #393838; /* Hintergrundfarbe für den Body */
+	background-color: #262626;/* Hintergrundfarbe für den Body */
 }
 
 /* CSS für den Chat-Container */
@@ -78,16 +78,16 @@ h5 {
 
 /* Definiert die Positionierung und Anzeige für den Hover-Text */
 .hover-box {
-	position: absolute;
+	position: absolute; /* Element wird relativ zum nächsten übergeordneten Element positioniert*/
 	bottom: 0;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translateX(-50%); /*Element wird horizontal um 50% verschoben*/
 	background-color: #000;
 	color: #fff;
-	padding: 10px;
-	visibility: hidden;
+	padding: 10px; /* Innenabstand */
+	visibility: hidden; /*Das Element wird anfangs unsichtbar gemacht und ausgeblendet.*/
 	opacity: 0;
-	transition: visibility 0s, opacity 0.5s ease-in-out;
+	transition: visibility 0s, opacity 0.5s ease-in-out; /*Eine Übergangseigenschaft wird definiert, um einen sanften Übergang von der unsichtbaren zur sichtbaren Darstellung des Elements zu ermöglichen. Die Sichtbarkeit (visibility) ändert sich sofort (0 Sekunden) und die Deckkraft (opacity) ändert sich über einen Zeitraum von 0,5 Sekunden mit einer ein- und ausblendenden Übergangsfunktion (ease-in-out).*/
 }
 
 /* Definiert die Anzeige des Hover-Textes, wenn der Hover-Container angezeigt wird */
@@ -147,3 +147,16 @@ img{
 	text-align: center; /* definiert die Ausrichtung des Textes */
 	z-index: 999; /* definiert die Z-Ebene des Containers */
 }
+
+input {
+	padding: 10px; /* Eingabefeldränder um 10px setzen */
+	margin: 10px 0px; /* Oben- und Untenabstand von 10px für das Eingabefeld setzen */
+	border-radius: 5px; /* Eingabefeldränder auf 5px abrunden */
+	border: none; /* Keine Rahmen um das Eingabefeld */
+	box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3); /* Einen leichten Schatten um das Eingabefeld erstellen */
+	background-color: #ece9e9; /* Hintergrundfarbe des Eingabefeldes auf Dunkelgrau setzen */
+	color: #050505; /* Schriftfarbe auf Weiß setzen */
+	outline: none; /* Keine Umrandung des Eingabefelds bei Auswahl */
+}
+
+
