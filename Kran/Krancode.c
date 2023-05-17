@@ -7,7 +7,7 @@ int achse1 = 90;  // Initialisiere die Winkel für beide Servomotoren auf 90 Gra
 int achse2 = 90; 
 
 void setup() {
-  servo1.attach(13);  // Initialisiere die Servomotoren an den Pins 7 und 6
+  servo1.attach(13);  // Initialisiere die Servomotoren an den Pins 13 und 12
   servo2.attach(12);
 
   servo1.write(90);  // Stelle beide Servomotoren auf ihre Anfangswinkel ein
