@@ -47,7 +47,7 @@ function freischaltungKamera() {
         input.parentElement.appendChild(successBox); //Einbindung gesamte success Box wie ein pop up Fenster
         
         networkErrorFixedButton.addEventListener("click", function() {
-          window.location.href = "nächste-webseite.html"; //Mascha pfad rein machen für die Landkarte (also wo GPS Daten stehen)
+          window.location.href = "file:///C:/repos_exitgame/digitaldefenders/Landing_Page/VideoPage/indexVideo.html"; //Mascha pfad rein machen für die Landkarte (also wo GPS Daten stehen)
         });
     
       } else {

@@ -9,7 +9,7 @@ function authenticate() {
 	// Wenn der eingegebene Benutzername "test" und das eingegebene Passwort "1234" ist
 	if (username === "wade.smith" && password === "C4berLove") {
 	  // Leite den Benutzer auf die EndPage weiter
-	  window.location.href = "http://127.0.0.1:3000/HomePage/indexHome.html";
+	  window.location.href = "file:///C:/repos_exitgame/digitaldefenders/Landing_Page/HomePage/indexHome.html";
 	} else {
 	  // Andernfalls zeige eine Fehlermeldung an
 	  errorMessage.innerHTML =

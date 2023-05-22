@@ -12,7 +12,7 @@ function richtigeGPS() {
       }
     
       // Wenn GPS Daten richtig, dann anzeigen der success Box 
-      if (gpsDaten === "38 53") { //38° 53′ 21.37“ N, 77° 3′ 0.63“ W
+      if (gpsDaten === "385321N77363W") { //38° 53′ 21.37“ N, 77° 3′ 0.63“ W
         window.location.href = "http://127.0.0.1:3000/FinishPage/indexFinish.html"; 
        
       } else {

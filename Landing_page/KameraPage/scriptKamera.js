@@ -28,7 +28,7 @@ function freischaltungKamera() {
         successHeader.textContent = "Netzwerkfehler";
         successBox.appendChild(successHeader); //Child success Header wird an Parent success Box angehängt
         var successText = document.createElement("p");
-        successText.textContent = "Ihre Eingabe war richtig. Leider liegt ein Problem bei der Verbindung vor. Bitte beheben Sie dieses, damit Sie Zugriff auf die Kamera haben.";
+        successText.textContent = "Ihre Eingabe war richtig. Leider liegt ein Problem bei der Verbindung vor. Bitte beheben Sie dieses, damit Sie Zugriff auf die Kamera haben. Hinweis: narknottub";
         successBox.appendChild(successText);
 
         var networkErrorFixedContainer = document.createElement("div");

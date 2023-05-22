@@ -1,4 +1,4 @@
 function redirectToPage() {
-    window.location.href = "KameraPage/indexKamera.html";
+    window.location.href = "file:///C:/repos_exitgame/digitaldefenders/Landing_Page/KameraPage/indexKamera.html";
   }
   
