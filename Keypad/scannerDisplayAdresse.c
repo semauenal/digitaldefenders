@@ -1,48 +1,48 @@
 #include <Wire.h>
 
 void setup() {
-  Wire.begin();
+  Wire.begin(); // Initialisiere die I2C-Kommunikation
 
-  Serial.begin(9600);
-  while (!Serial);
+  Serial.begin(9600); // Initialisiere die serielle Kommunikation mit einer Baudrate von 9600
+  while (!Serial); // Warte, bis die serielle Verbindung hergestellt ist
 
-  Serial.println("\nI2C Scanner");
+  Serial.println("\nI2C Scanner"); // Gebe eine Begrüßungsnachricht auf der seriellen Schnittstelle aus
 }
 
 void loop() {
   byte error, address;
   int nDevices;
 
-  Serial.println("Scanning...");
+  Serial.println("Scanning..."); // Gebe eine Meldung aus, dass der Scan gestartet wird
 
-  nDevices = 0;
-  for (address = 1; address < 127; address++) {
-    Wire.beginTransmission(address);
-    error = Wire.endTransmission();
+  nDevices = 0; // Initialisiere den Zähler für gefundene Geräte mit 0
+  for (address = 1; address < 127; address++) { // Iteriere über alle möglichen I2C-Adressen (von 1 bis 127)
+    Wire.beginTransmission(address); // Starte die Kommunikation mit der aktuellen Adresse
+    error = Wire.endTransmission(); // Beende die Kommunikation und überprüfe auf Fehler
 
-    if (error == 0) {
-      Serial.print("I2C device found at address 0x");
+    if (error == 0) { // Wenn kein Fehler aufgetreten ist
+      Serial.print("I2C-Gerät gefunden an Adresse 0x");
       if (address < 16) {
-        Serial.print("0");
+        Serial.print("0"); // Führende Null hinzufügen, wenn die Adresse nur ein Zeichen hat
       }
-      Serial.print(address, HEX);
-      Serial.println("  !");
+      Serial.print(address, HEX); // Gebe die gefundene I2C-Adresse in hexadezimaler Form aus
+      Serial.println("  !"); // Gebe ein Ausrufezeichen aus, um anzuzeigen, dass ein Gerät gefunden wurde
 
-      nDevices++;
-    } else if (error == 4) {
-      Serial.print("Unknow error at address 0x");
+      nDevices++; // Inkrementiere den Zähler für gefundene Geräte
+    } else if (error == 4) { // Wenn ein unbekannter Fehler aufgetreten ist
+      Serial.print("Unbekannter Fehler an Adresse 0x");
       if (address < 16) {
-        Serial.print("0");
+        Serial.print("0"); // Führende Null hinzufügen, wenn die Adresse nur ein Zeichen hat
       }
-      Serial.println(address, HEX);
+      Serial.println(address, HEX); // Gebe die betroffene I2C-Adresse in hexadezimaler Form aus
     }
   }
 
   if (nDevices == 0) {
-    Serial.println("No I2C devices found\n");
+    Serial.println("Keine I2C-Geräte gefunden\n"); // Wenn keine Geräte gefunden wurden, gebe eine entsprechende Meldung aus
   } else {
-    Serial.println("done\n");
+    Serial.println("Fertig\n"); // Wenn Geräte gefunden wurden, gebe eine Abschlussmeldung aus
   }
 
-  delay(5000); // wait 5 seconds for next scan
+  delay(5000); // Warte 5 Sekunden, bevor der nächste Scan durchgeführt wird
 }
