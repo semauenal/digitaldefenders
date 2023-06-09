@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Meta-Tags zur Seiteneinstellung -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titel der Seite -->
+    <title>Unser nächster geplanter Anschlag</title>
+    <!-- Verknüpfung zur Google Fonts-API -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <!-- Verknüpfung zur CSS-Datei -->
+    <link href="styleEnd.css" rel="stylesheet">
+    <!-- Verknüpfung zur JavaScript-Datei -->
+    <script src="scriptEnd.js"></script>
+  </head>
+  <body>
+    <!-- Hauptbereich der Seite -->
+    <main>
+      <!-- Eigene Klasse, um in CSS alles Allgemein zu formatieren - Alggemeiner Rahmen -->
+      <div class="container">
+        <!-- Kopfbereich der Seite mit Titel -->
+        <header> 
+          <!-- Überschrift h1-->
+            <h1>Unser nächstes Ziel</h1>
+          </header>
+          <!-- Überschrift zur Kartenanzeige -->
+          <h4>Lageplan</h4>
+          <!-- Eigener Abschnitt für Map, um diese eigenständig und besser zu formatieren-->
+          <div class="map-container">
+            <!-- Einbindung der Google Maps-Karte über einen iFrame - ein iFrame ermöglicht es, eine externe Webseite in eine Webseite einzubetten-->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d794963.3373694272!2d-77.57523223478898!3d38.893670400893505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c6de5af6e45b%3A0xc2524522d4885d2a!2sWashington%2C%20D.C.%2C%20District%20of%20Columbia%2C%20USA!5e0!3m2!1sde!2sde!4v1680982123007!5m2!1sde!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+         <br>
+          <br>
+          <!-- Beschreibung und Aufforderung zur Eingabe von GPS-Koordinaten -->
+          <p>Um dich unserem nächsten Projekt anzuschließen, gib die Koordinaten ein, die du von unserem Alpha bekommen hast.</p>
+          <p>Wir müssen sicher gehen, dass du Teil dieses Projektes bist!</p>
+          <div>
+            <label for="GPS Daten">GPS Daten</label>
+            <br>
+            <!-- Eingabefeld für GPS-Koordinaten -->
+            <input type="text" id="GPS">
+            <div>
+              <button onclick="richtigeGPS()">Submit</button> <!-- Aufruf der Funktion aus JavaSkript für den Netzwerkfehler bei richtiger Eingabe der GPS-Daten-->
+            </div>
+          </div>
+        <!-- Fußbereich der Seite -->
+        <div class="footer">
+        </div>
+    </main>
+    <!-- Copyright-Hinweis -->
+    <p>©2022 CyberHades. Alle Rechte vorbehalten.</p>
+  </body>
+</html>

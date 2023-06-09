@@ -1,0 +1,128 @@
+/* Der folgende Abschnitt definiert den globalen Body-Style und legt den Hintergrund auf #262626 fest und die Textfarbe auf #b4b1b1. */
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #262626;;
+	color: #b4b1b1;
+	text-align: center;
+}
+
+/* Der folgende Abschnitt definiert den Stil für alle Bilder auf der Seite und setzt die Breite auf 30% und den rechten Abstand auf 10px. */
+img {
+	width: 30%; 
+	margin-right: 10px; 
+}
+
+/* Der folgende Abschnitt definiert den Stil für den Container, der das Formular enthält. Der Hintergrund ist auf #151515 festgelegt und es gibt einen Schatten, um dem Container Tiefe zu verleihen. Es gibt auch einen inneren Abstand und eine maximale Breite von 500px. */
+.container {
+	background-color: #151515;
+	border: none;
+	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+	padding: 20px;
+	margin: 20px;
+	max-width: 500px;
+	margin: auto;
+	color: #fff;
+}
+
+/* Der folgende Abschnitt definiert den Stil für die Überschrift des Formulars und setzt die Schriftfarbe auf #bf0e08, die Schriftgröße auf 30px und den Schriftstil auf fett. */
+h1 {
+	text-align: center;
+	color: #bf0e08;
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: 20px;	
+}
+
+/* Der folgende Abschnitt definiert den Stil für den Abschnitt, der bei Bedarf eine versteckte Box mit zusätzlichen Informationen anzeigt, wenn der Benutzer mit dem Mauszeiger über den "forgot password" Link fährt. */
+.forgot-password-hoverbox {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	z-index: 1;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+	display: none;
+	width: 200px;
+	height: 150px;
+}
+
+/* Der folgende Abschnitt definiert den Stil für den "forgot password" Link und legt die Farbe auf ein helles Rot fest und die Schriftgröße auf 12px. */
+.forgot-password-link {
+	color: rgb(247, 110, 110);
+	font-size: 12px;
+	
+}
+
+/* Der folgende Abschnitt definiert den Stil für das Bild in der versteckten Box. Die maximale Breite beträgt 50%. */
+.forgot-password-hoverbox img {
+	max-width: 50%;
+	
+}
+
+/* Der folgende Abschnitt definiert den Stil für den Text in der versteckten Box. Die Schriftfarbe ist #151515 und die Schriftgröße beträgt 12px. */
+.forgot-password-hoverbox p {
+	color: #151515;
+	font-size: 12px;
+	display: block;
+}
+
+.forgot-password-link:hover + .forgot-password-hoverbox {
+	position: static;
+	display: block;
+	margin-top: 10px; /* Fügt einen oberen Abstand hinzu, um den Link und die Hover-Box voneinander zu trennen */
+}  
+  
+
+/* Stil für Überschrift */
+h2 {
+	text-align: center; /* Zentriert Text innerhalb der Überschrift */
+	color: #fff; /* Schriftfarbe auf Weiß setzen */
+	font-size: 20px; /* Schriftgröße auf 20px setzen */
+	font-weight: 700; /* Schriftgewicht auf fett (700) setzen */
+	margin-bottom: 20px; /* Unteren Abstand von 20px für die Überschrift setzen */
+}
+
+/* Stil für das Formular */
+form {
+	display: flex; /* Erstellt ein flexibles Layout für das Formular */
+	flex-direction: column; /* Definiert die Hauptachse des flexiblen Layouts auf eine vertikale Ausrichtung */
+	align-items: center; /* Zentriert Elemente entlang der Hauptachse */
+}
+
+/* Stil für Beschriftungen von Formularelementen */
+label{
+	margin-top: 10px; /* Oberen Abstand von 10px für die Beschriftung setzen */
+	color: #fff; /* Schriftfarbe auf Weiß setzen */
+}
+
+/* Stil für Eingabefelder */
+input {
+	padding: 10px; /* Eingabefeldränder um 10px setzen */
+	margin: 10px 0px; /* Oben- und Untenabstand von 10px für das Eingabefeld setzen */
+	border-radius: 5px; /* Eingabefeldränder auf 5px abrunden */
+	border: none; /* Keine Rahmen um das Eingabefeld */
+	box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3); /* Einen leichten Schatten um das Eingabefeld erstellen */
+	background-color: #333; /* Hintergrundfarbe des Eingabefeldes auf Dunkelgrau setzen */
+	color: #fff; /* Schriftfarbe auf Weiß setzen */
+	outline: none; /* Keine Umrandung des Eingabefelds bei Auswahl */
+}
+
+/* Stil für den Senden-Button des Formulars */
+button[type="submit"] {
+	padding: 10px; /* Abstand des Senden-Buttons zum Inhalt auf 10px setzen */
+	margin-top: 10px; /* Oberen Abstand des Senden-Buttons auf 20px setzen */
+	margin-bottom: 10px;
+	background-color: #bf0e08; /* Hintergrundfarbe des Senden-Buttons auf Dunkelrot setzen */
+	color: #fff; /* Schriftfarbe auf Weiß setzen */
+	border: none; /* Kein Rahmen um den Senden-Button */
+	border-radius: 5px; /* Runde Ecken des Senden-Buttons auf 5px */
+	cursor: pointer; /* Ändert den Cursor beim Überfahren des Buttons in eine Hand */
+	box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3); /* Einen leichten Schatten um den Senden-Button erstellen */
+	font-size: 15px;
+}
+
+/* Stil für den Senden-Button des Formulars, wenn er angehoben wird */
+button[type="submit"]:hover {
+	background-color: #7f0e08; /* Hintergrundfarbe des Senden-Buttons auf Dunkelrot ändern, wenn er angehoben wird */
+}

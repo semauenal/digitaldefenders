@@ -1,0 +1,40 @@
+/* CSS für den gesamten Body */
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #262626; /* Dunkler Hintergrundfarbe für den Body */
+	height: 100%;
+	margin: 0;
+}
+
+/* CSS für das Video und den Container */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh; /* Das Video nimmt den gesamten sichtbaren Bereich ein */
+}
+
+h4 {
+	color: #fff; /* Weiße Textfarbe */
+}
+
+video {
+	max-width: 50%;
+	max-height: 500%;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Leichte Schatten um das Video */
+}
+
+button {
+	position: absolute;
+    bottom: 10px;
+    right: 40px;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+    background-color: #e0d8d8;
+    color: #010101;
+    outline: none;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Metadaten für die Webseite -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Titel der Webseite -->
+	<title>Digital Defenders</title>
+	<!-- Importieren der Schriftart über die Google Fonts API -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<!-- Verknüpfung mit der CSS-Datei -->
+	<link rel="stylesheet" href="styleKamera.css">
+	<!-- Verknüpfung mit der JavaScript-Datei -->
+	<script src="scriptKamera.js"></script>
+</head>
+<body>
+	<!-- Container für den Chat - class genauer erklärt in Startseite (Seite1)-->
+	<div class="chat-container">
+		<!-- Chat-Header mit Überschrift -->
+		<div class="chat-header">
+			<h2>Willkommen im letzten Chat</h2>
+		</div>
+		<!-- Chat-Box für die Nachrichten -->
+		<div class="chat-box">
+			<!-- Chat-Nachrichten -->
+			<div class="chat-message"> <!-- Da jede Message ja in einer eigenen 'Bubble' steht immer neue class-Anweisung-->
+				<p>Hi Russel, alles klar?</p>
+			</div>
+			<div class="chat-message">
+				<p>Alles fit. Wie läufts beim FBI?</p>
+			</div>
+			<div class="chat-message">
+				<p>Sehr gut! Unser nächster Plan ist sicher! Die haben keinen blassen Schimmer! :D</p>
+			</div>
+			<div class="chat-message">
+				<p>Haha. Was für Vollpfosten!</p>
+			</div>
+
+			<!-- Container für den Hover-Text -->
+			<div class="hover-container">
+				<!-- Text, der angezeigt wird, wenn man mit der Maus über das Bild geht -->
+				<h5>Russel ist gerade aktiv</h5>
+				<!-- Einbindung eines I's als Bild, worüber User hovern muss, um Text angezeigt zu bekommen -->
+				<img src="information.jpg" alt="example image">
+				<!-- Hover-Box mit Text -->
+				<div class="hover-box">
+					<p> Durch die MAC-Adresse von Russel kannst du dich auf seine Kamera schalten. Nutze dein FBI Wissen! </p>
+				</div>
+			</div>
+      
+			<!-- Eingabefeld für die MAC-Adresse und Button zum Freischalten -->
+			<div class="chat-input">
+				<input type="text" placeholder="Gib die MAC Adresse ein..." onpaste="pasteFromClipboard(event)"> <!-- Paceholder: Text der im Hintergrund angezeigt wird-->
+				<button onclick="freischaltungKamera()">Freischaltung Kamera</button> <!-- Aufruf der Funktion aus JavaSkript für den Netzwerkfehler bei richtiger Eingabe der MAC-Adresse-->
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
